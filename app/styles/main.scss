@@ -58,6 +58,11 @@ body {
   }
 }
 
+.lect {
+  padding: 10px 10px 10px 10px;
+  background-color: #e5e5e5;
+}
+
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -102,3 +107,5 @@ body {
 [draggable] {
   cursor: move;
 }
+
+.divtarget {display: inline-block;width:85px;height:30px;padding:5px;border:1px solid #aaaaaa;}
