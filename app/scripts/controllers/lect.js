@@ -1,7 +1,13 @@
 'use strict';
 
 angular.module('tabadulApp')
-  .controller('lectCtrl', function () {});
+  .controller('lectCtrl', ['$scope', function($scope) {
+    $scope.checkboxModel = {
+      value1 : false,
+      value2 : false
+    };
+  }]);
+
 
 function allowDrop(ev) {
   ev.preventDefault();
@@ -22,7 +28,7 @@ function drop(ev) {
 
   if(document.getElementById("divtarget1").hasChildNodes() && document.getElementById("divtarget2").hasChildNodes())
   {
-    document.getElementById("ueberpruefen").removeAttribute("disabled");
+    document.getElementById("ueberpruefen1").removeAttribute("disabled");
   }
 }
 
@@ -38,4 +44,26 @@ function ueberpruefeTexte () {
     document.getElementById("result").innerHTML = "Leider falsch.";
   }
 }
+
+function ueberpruefeCheckbox ()
+{
+  //var scope = angular.element($("#lectholder")).scope();
+  var cbx1 = document.getElementById("cbx1").checked;
+  var cbx2 = document.getElementById("cbx2").checked;
+  if(cbx1 == true && cbx2 == false){
+    document.getElementById("result").innerHTML = "Alles richtig!";
+  }
+  else {
+    document.getElementById("result").innerHTML = "Leider falsch.";
+  }
+}
+
+var aktSicht = 0;
+function naechsteAufgabe () {
+  document.getElementById("result").innerHTML = "";
+  angular.element(document.getElementsByClassName("lect").item(aktSicht)).addClass("ng-hide");
+  aktSicht++;
+  angular.element(document.getElementsByClassName("lect").item(aktSicht)).removeClass("ng-hide");
+}
+
 document.getElementById("ueberpruefen").onclick = ueberpruefeTexte;

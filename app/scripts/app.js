@@ -21,8 +21,8 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/lect1', {
-        templateUrl: 'views/lect1.html',
+      .when('/lect', {
+        templateUrl: 'views/lect.html',
         controller: 'lectCtrl',
         controllerAs: 'lect'
       })
