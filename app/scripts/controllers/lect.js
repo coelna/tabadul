@@ -60,10 +60,37 @@ function ueberpruefeCheckbox ()
 
 var aktSicht = 0;
 function naechsteAufgabe () {
-  document.getElementById("result").innerHTML = "";
-  angular.element(document.getElementsByClassName("lect").item(aktSicht)).addClass("ng-hide");
-  aktSicht++;
-  angular.element(document.getElementsByClassName("lect").item(aktSicht)).removeClass("ng-hide");
+  var maxSicht = 2;
+  if(aktSicht <= maxSicht) {
+    document.getElementById("result").innerHTML = "";
+    angular.element(document.getElementsByClassName("lect").item(aktSicht)).addClass("ng-hide");
+    aktSicht++;
+    angular.element(document.getElementsByClassName("lect").item(aktSicht)).removeClass("ng-hide");
+
+    if (aktSicht == maxSicht) {
+      angular.element(document.getElementById("btnNextAufgDone")).addClass("ng-hide");
+    }
+  }
+  else
+  {
+
+  }
 }
 
-document.getElementById("ueberpruefen").onclick = ueberpruefeTexte;
+function ueberpruefeMatching() {
+  var index;
+  var correct = true;
+  for (index = 0; index < document.getElementById("sortList1").getElementsByTagName("li").length; ++index) {
+    if(document.getElementById("sortList1").getElementsByTagName("li").item(index).value !=
+      document.getElementById("sortList2").getElementsByTagName("li").item(index).value)
+    {
+      correct = false;
+    }
+    if(correct){
+      document.getElementById("result").innerHTML = "Alles richtig!";
+    }
+    else {
+      document.getElementById("result").innerHTML = "Leider falsch.";
+    }
+  }
+}

@@ -37,6 +37,37 @@
     </form>
     <p><button class="btn btn-default" type="button" id="ueberpruefen2" onclick="ueberpruefeCheckbox()">Auswahl prüfen</button></p>
   </div>
+
+  <div id="lect3" class="lect ng-hide"><p><b>Bitte sortieren Sie die Wörter in die richtige Reihenfolge.</b></p>
+    <form name="myForm" ng-controller="lectCtrl">
+      <table width="100%">
+        <tr>
+          <td widht="50%">
+            <ul id="sortList1" class="sortable">
+              <li value="1" class="sortableItem">Item 1</li>
+              <li value="2" class="sortableItem">Item 2</li>
+              <li value="3" class="sortableItem">Item 3</li>
+              <li value="4" class="sortableItem">Item 4</li>
+            </ul>
+
+          </td>
+          <td widht="50%">
+            <ul id="sortList2" class="sortable2">
+              <li value="1" class="sortableItem">Item 1</li>
+              <li value="3" class="sortableItem">Item 3</li>
+              <li value="4" class="sortableItem">Item 4</li>
+              <li value="2" class="sortableItem">Item 2</li>
+            </ul>
+            <script>
+              $('.sortable').sortable();
+              $('.sortable2').sortable();
+            </script>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <p><button class="btn btn-default" type="button" id="ueberpruefen3" onclick="ueberpruefeMatching()">Lösung prüfen</button></p>
+  </div>
   <p style="float:left" id="result"></p>
-  <a style="float:right;margin-top: 5px;margin-bottom: 5px" class="btn btn-lg btn-success" onclick="naechsteAufgabe()"()>Zur nächsten Aufgabe</a>
+  <a id="btnNextAufgDone" style="float:right;margin-top: 5px;margin-bottom: 5px" class="btn btn-lg btn-success" onclick="naechsteAufgabe()"()>Zur nächsten Aufgabe</a>
 </div>
